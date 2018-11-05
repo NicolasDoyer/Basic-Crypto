@@ -2,7 +2,7 @@
 
 ## Compilation
 
-Lancer à la racine du projet :
+Lancer dans le dossier "src" du projet :
 ```sh
 javac *.java
 ```
