@@ -1,0 +1,7 @@
+# DEV ENV FILES
+.idea
+*.iml
+
+# COMPILATION
+out
+
