@@ -167,23 +167,4 @@ public class Rsa {
 
         return decrypted;
     }
-
-    public static void main(String[] args){
-        try{
-            // Creating RSA instance
-            Rsa encryptor = new Rsa();
-            String message = "Testastos";
-
-            // Encrypting message
-            String messageEncrypted = Rsa.encryptMessage(message,encryptor.getPublicKey());
-            System.out.println(messageEncrypted);
-
-            // Decrypting message
-            String messageDecrypted = Rsa.decryptMessage(messageEncrypted,encryptor);
-            System.out.println(messageDecrypted);
-
-        }catch(Exception e){
-            System.err.println(e.toString());
-        }
-    }
 }

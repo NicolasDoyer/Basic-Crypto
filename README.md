@@ -26,8 +26,6 @@ java Main -sdes [character]
 
 
 ## Cryptage/Decryptage RSA
-Pour l'instant il n'est pas disponible dans le main.
-Il faut modifier à la main la variable "message" dans le main de la classe RSA et lancer:
-̀``sh
-java Rsa
+```sh
+java Main -rsa "[message]"
 ```

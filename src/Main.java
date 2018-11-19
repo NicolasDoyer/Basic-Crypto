@@ -1,3 +1,4 @@
+import encryption.Rsa;
 import encryption.Sdes;
 import encryption.Vigenere;
 import exception.UndefinedOption;
@@ -14,6 +15,7 @@ public class Main {
             "-crack-vig",
             "-sdes",
             "-char",
+            "-rsa",
             "-h",
             "-help"
     };
@@ -70,6 +72,8 @@ public class Main {
         System.out.println("      Crack file   (Vigenere): java Main -crack-vig [filename]");
         System.out.println("");
         System.out.println("      Encrypt char (SDES): java Main -sdes [character]");
+        System.out.println("");
+        System.out.println("      RSA : java Main -rsa \"[message]\"");
     }
 
     public static void main(String[] args) {
@@ -109,6 +113,25 @@ public class Main {
                             System.out.println(sdes.run((executable.getOptions().get("-char")).charAt(0)));
                         }
                         break;
+                    case "-rsa":
+                        try{
+                            // Creating RSA instance
+                            Rsa encryptor = new Rsa();
+                            String message = executable.getOptions().get("-rsa");
+
+                            // Encrypting message
+                            System.out.println("Message encrypté: ");
+                            String messageEncrypted = Rsa.encryptMessage(message,encryptor.getPublicKey());
+                            System.out.println(messageEncrypted);
+
+                            // Decrypting message
+                            System.out.println("Message décrypté: ");
+                            String messageDecrypted = Rsa.decryptMessage(messageEncrypted,encryptor);
+                            System.out.println(messageDecrypted);
+
+                        }catch(Exception e){
+                            System.err.println(e.toString());
+                        }
                     case "-h":
                     case "-help":
                         executable.printHelp();
